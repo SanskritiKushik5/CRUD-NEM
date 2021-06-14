@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/litera/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/sketchy/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-5 mx-auto text-center py-4">
-                <h2 class="text-center">Enter a Task</h2>
+                <h1 class="text-center">Enter a Task</h1>
                 <form action="/add" method="POST">
                     <div class="form-group">
                         <input class="form-control" type="text" name="task" id="task" placeholder="Enter a Task">
@@ -22,6 +22,18 @@
                 </form>
             </div>
         </div>
+        <% for( var tasks of data ) { %>
+            <form action="/delete" method="POST" class="form-inline my-3">
+                <p style="font-size: x-large;"><%= tasks.task %> </p>
+                <input type="hidden" name="id" value="<%= tasks.id %>">
+                <%  if(tasks.status){ %>
+                    
+                <%  }else{ %>
+                    <button type="submit" class="btn btn-primary mx-3" formaction="/update">Mark Completed</button>
+                <% } %> 
+                <button type="submit" class="btn btn-danger mx-3">Delete</button>
+            </form>
+        <% } %>
     </div>
 </body>
 </html>
