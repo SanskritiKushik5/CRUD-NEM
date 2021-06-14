@@ -1,0 +1,1 @@
+module.exports = "mongodb+srv://admin:mJVzqGCy7xNdUwa@crud.g8lo2.mongodb.net/crud?retryWrites=true&w=majority"
